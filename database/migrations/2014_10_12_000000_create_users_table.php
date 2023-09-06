@@ -9,7 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up(): void //comandos que quiero utilizar para avanar en diseño dentro de mi base de datos
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
@@ -25,7 +25,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down(): void //ctrl + z --> down de la tabla de arriba
     {
         Schema::dropIfExists('users');
     }

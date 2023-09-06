@@ -8,17 +8,41 @@
 </head>
 <body>
     <h1>Formulario de contacto</h1>
-    <form action="" method="post">
-        <label for = "correo"></label><br>
-        <input type="email" name="correo"><br>
-        <label for = "comentario"></label><br>
-        <textarea name="comentario" id="comentario" cols="30" rows="30"></textarea><br>
+    <form action="contacto" method="post">
 
-        <label for = "tipo">Tipo:</label><br>    
+        <?php
+            //echo $type;
+            //echo $otro_nombre;
+        ?>
+
+        <h3>{{$tipo}}</h3> <!--lo mismo que arriba-->
+
+        @csrf 
+        <label for = "correo">Correo</label><br>
+        <input type="email" 
+                name="correo"
+                @if($tipo == 'alumno')
+                    value="@alumnos.udg.mx"
+                @else
+                    value="@gmail.com"
+                @endif
+                ><br><br>
+        
+        <label for = "comentario">Comentario</label><br>
+        <textarea 
+            name="comentario" 
+            id="comentario" 
+            cols="30" 
+            rows="10">
+        </textarea><br><br>
+
+        <!--<label for = "tipo">Tipo:</label><br>    
         <select name="tipo">
             <option value="alumno">Alumno</option>
             <option value="empleado">Empleado</option>
-        </select> <br>
+        </select> <br><br>-->
+
+
         <input type="submit" value="Enviar">
     </form>
 </body>
