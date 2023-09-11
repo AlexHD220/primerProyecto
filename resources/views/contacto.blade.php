@@ -10,6 +10,17 @@
     <h1>Formulario de contacto</h1>
     <form action="contacto" method="post">
 
+    <!--Mostrar todos los errores de mi variable $error-->
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
         <?php
             //echo $type;
             //echo $otro_nombre;
@@ -27,14 +38,17 @@
                     value="@gmail.com"
                 @endif
                 ><br><br>
+
+        @error('title')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
         
         <label for = "comentario">Comentario</label><br>
         <textarea 
             name="comentario" 
             id="comentario" 
             cols="30" 
-            rows="10">
-        </textarea><br><br>
+            rows="10"></textarea><br><br>
 
         <!--<label for = "tipo">Tipo:</label><br>    
         <select name="tipo">
