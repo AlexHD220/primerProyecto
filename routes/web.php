@@ -55,4 +55,4 @@ Route::post('/contacto',[SitioController::class,'contactoSave']);
     
 });*/
 
-Route::resourse('tarea',TareaController::class);
+Route::resource('tarea',TareaController::class);
